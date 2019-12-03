@@ -69,8 +69,8 @@ HPDF_LoadPngImageFromMem  (HPDF_Doc     pdf,
 
 
 HPDF_EXPORT(HPDF_Image)
-HPDF_LoadPngImageFromFile  (HPDF_Doc     pdf,
-                            const char  *filename)
+HPDF_LoadPngImageFromFile  (HPDF_Doc      pdf,
+                            HPDF_FILEPATH filename)
 {
     HPDF_Stream imagedata;
     HPDF_Image image;
@@ -101,7 +101,7 @@ HPDF_LoadPngImageFromFile  (HPDF_Doc     pdf,
 /* delaied loading version of HPDF_LoadPngImageFromFile */
 HPDF_EXPORT(HPDF_Image)
 HPDF_LoadPngImageFromFile2  (HPDF_Doc     pdf,
-                             const char  *filename)
+                             HPDF_FILEPATH filename)
 {
     HPDF_Stream imagedata;
     HPDF_Image image;

@@ -185,7 +185,7 @@ HPDF_NameTree_Validate  (HPDF_NameTree  nametree)
 HPDF_EmbeddedFile
 HPDF_EmbeddedFile_New  (HPDF_MMgr  mmgr,
                         HPDF_Xref  xref,
-                        const char *file)
+                        HPDF_FILEPATH file)
 {
     HPDF_STATUS ret = HPDF_OK;
     HPDF_Dict ef;               /* the dictionary for the embedded file: /Type /EF */

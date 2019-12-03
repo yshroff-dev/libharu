@@ -65,7 +65,7 @@ static HPDF_STATUS Get3DStreamType (HPDF_Stream  stream, const char **type)
 
 HPDF_EXPORT(HPDF_Image)
 HPDF_LoadU3DFromFile  (HPDF_Doc     pdf,
-						const char  *filename)
+						HPDF_FILEPATH filename)
 {
 	HPDF_Stream imagedata;
 	HPDF_Image image;
@@ -1093,7 +1093,7 @@ HPDF_EXPORT(HPDF_JavaScript) HPDF_CreateJavaScript( HPDF_Doc pdf, const char *co
 	return javaScript;
 }
 
-HPDF_EXPORT(HPDF_JavaScript) HPDF_LoadJSFromFile  (HPDF_Doc pdf, const char *filename)
+HPDF_EXPORT(HPDF_JavaScript) HPDF_LoadJSFromFile  (HPDF_Doc pdf, HPDF_FILEPATH filename)
 {
 	HPDF_Stream js_data;
 	HPDF_JavaScript js = NULL;

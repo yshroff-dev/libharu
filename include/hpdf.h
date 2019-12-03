@@ -159,8 +159,7 @@ HPDF_ResetStream  (HPDF_Doc     pdf);
 
 
 HPDF_EXPORT(HPDF_STATUS)
-HPDF_SaveToFile  (HPDF_Doc     pdf,
-                  FILEPATH_PARAMETER file_name);
+HPDF_SaveToFile  (HPDF_Doc     pdf, HPDF_FILEPATH file_name);
 
 
 HPDF_EXPORT(HPDF_STATUS)
@@ -278,24 +277,24 @@ HPDF_GetFont  (HPDF_Doc     pdf,
 
 HPDF_EXPORT(const char*)
 HPDF_LoadType1FontFromFile  (HPDF_Doc     pdf,
-                             FILEPATH_PARAMETER afm_file_name,
-                             FILEPATH_PARAMETER data_file_name);
+                             HPDF_FILEPATH afm_file_name,
+                             HPDF_FILEPATH data_file_name);
 
 
 HPDF_EXPORT(HPDF_FontDef)
 HPDF_GetTTFontDefFromFile (HPDF_Doc     pdf,
-                           FILEPATH_PARAMETER file_name,
+                           HPDF_FILEPATH file_name,
                            HPDF_BOOL    embedding);
 
 HPDF_EXPORT(const char*)
 HPDF_LoadTTFontFromFile (HPDF_Doc     pdf,
-                         FILEPATH_PARAMETER file_name,
+                         HPDF_FILEPATH file_name,
                          HPDF_BOOL    embedding);
 
 
 HPDF_EXPORT(const char*)
 HPDF_LoadTTFontFromFile2 (HPDF_Doc     pdf,
-                          FILEPATH_PARAMETER file_name,
+                          HPDF_FILEPATH file_name,
                           HPDF_UINT    index,
                           HPDF_BOOL    embedding);
 
@@ -777,17 +776,17 @@ HPDF_LoadPngImageFromMem  (HPDF_Doc     pdf,
 
 HPDF_EXPORT(HPDF_Image)
 HPDF_LoadPngImageFromFile (HPDF_Doc      pdf,
-                           const char    *filename);
+                           HPDF_FILEPATH filename);
 
 
 HPDF_EXPORT(HPDF_Image)
 HPDF_LoadPngImageFromFile2 (HPDF_Doc      pdf,
-                            const char    *filename);
+                            HPDF_FILEPATH filename);
 
 
 HPDF_EXPORT(HPDF_Image)
 HPDF_LoadJpegImageFromFile (HPDF_Doc      pdf,
-                            const char    *filename);
+                            HPDF_FILEPATH filename);
 
 HPDF_EXPORT(HPDF_Image)
 HPDF_LoadJpegImageFromMem   (HPDF_Doc      pdf,
@@ -796,7 +795,7 @@ HPDF_LoadJpegImageFromMem   (HPDF_Doc      pdf,
 
 HPDF_EXPORT(HPDF_Image)
 HPDF_LoadU3DFromFile (HPDF_Doc      pdf,
-                            const char    *filename);
+                            HPDF_FILEPATH filename);
 
 HPDF_EXPORT(HPDF_Image)
 HPDF_LoadU3DFromMem  (HPDF_Doc      pdf,
@@ -815,7 +814,7 @@ HPDF_Image_LoadRaw1BitImageFromMem  (HPDF_Doc           pdf,
 
 HPDF_EXPORT(HPDF_Image)
 HPDF_LoadRawImageFromFile  (HPDF_Doc           pdf,
-                            const char         *filename,
+                            HPDF_FILEPATH      filename,
                             HPDF_UINT          width,
                             HPDF_UINT          height,
                             HPDF_ColorSpace    color_space);
@@ -978,8 +977,7 @@ HPDF_Font_MeasureText (HPDF_Font          font,
 /*----- attachements -------------------------------------------------------*/
 
 HPDF_EXPORT(HPDF_EmbeddedFile)
-HPDF_AttachFile  (HPDF_Doc    pdf,
-                  const char *file);
+HPDF_AttachFile  (HPDF_Doc    pdf, HPDF_FILEPATH file);
 
 
 /*--------------------------------------------------------------------------*/
@@ -1589,7 +1587,7 @@ HPDF_ICC_LoadIccFromMem (HPDF_Doc   pdf,
 
 HPDF_EXPORT(HPDF_OutputIntent)
 HPDF_LoadIccProfileFromFile  (HPDF_Doc  pdf,
-                              FILEPATH_PARAMETER icc_file_name,
+                              HPDF_FILEPATH icc_file_name,
                                    int  numcomponent);
 
 #ifdef __cplusplus

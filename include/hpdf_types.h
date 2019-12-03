@@ -39,6 +39,17 @@ extern "C" {
 /*----------------------------------------------------------------------------*/
 /*----- type definition ------------------------------------------------------*/
 
+#if defined(_MSC_VER)
+#ifndef _USE_WIN32_UNICODE_FILEPATHS
+#define _USE_WIN32_UNICODE_FILEPATHS
+#endif
+#endif
+
+#ifdef _USE_WIN32_UNICODE_FILEPATHS
+	typedef const wchar_t * HPDF_FILEPATH;
+#else
+	typedef const char * HPDF_FILEPATH;
+#endif
 
 /*  native OS integer types */
 typedef  signed int          HPDF_INT;

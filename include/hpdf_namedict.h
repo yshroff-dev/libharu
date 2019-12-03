@@ -62,7 +62,7 @@ HPDF_NameTree_Validate  (HPDF_NameTree  tree);
 HPDF_EmbeddedFile
 HPDF_EmbeddedFile_New  (HPDF_MMgr  mmgr,
                         HPDF_Xref  xref,
-                        const char *file);
+                        HPDF_FILEPATH file);
 
 HPDF_BOOL
 HPDF_EmbeddedFile_Validate  (HPDF_EmbeddedFile  emfile);

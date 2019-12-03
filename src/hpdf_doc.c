@@ -74,7 +74,7 @@ static const char*
 LoadTTFontFromStream (HPDF_Doc         pdf,
                       HPDF_Stream      font_data,
                       HPDF_BOOL        embedding,
-                      FILEPATH_PARAMETER file_name);
+                      HPDF_FILEPATH file_name);
 
 
 static const char*
@@ -82,7 +82,7 @@ LoadTTFontFromStream2 (HPDF_Doc         pdf,
                        HPDF_Stream      font_data,
                        HPDF_UINT        index,
                        HPDF_BOOL        embedding,
-                       FILEPATH_PARAMETER file_name);
+                       HPDF_FILEPATH file_name);
 
 
 /*---------------------------------------------------------------------------*/
@@ -745,7 +745,7 @@ HPDF_ResetStream  (HPDF_Doc     pdf)
 
 HPDF_EXPORT(HPDF_STATUS)
 HPDF_SaveToFile  (HPDF_Doc     pdf,
-                  FILEPATH_PARAMETER file_name)
+                  HPDF_FILEPATH file_name)
 {
     HPDF_Stream stream;
 
@@ -1393,8 +1393,8 @@ HPDF_GetFont  (HPDF_Doc          pdf,
 
 HPDF_EXPORT(const char*)
 HPDF_LoadType1FontFromFile  (HPDF_Doc     pdf,
-                             FILEPATH_PARAMETER afm_file_name,
-                             FILEPATH_PARAMETER data_file_name)
+                             HPDF_FILEPATH afm_file_name,
+                             HPDF_FILEPATH data_file_name)
 {
     HPDF_Stream afm;
     HPDF_Stream pfm = NULL;
@@ -1464,7 +1464,7 @@ LoadType1FontFromStream  (HPDF_Doc      pdf,
 
 HPDF_EXPORT(HPDF_FontDef)
 HPDF_GetTTFontDefFromFile (HPDF_Doc      pdf,
-                           const char   *file_name,
+                           HPDF_FILEPATH file_name,
                            HPDF_BOOL     embedding)
 {
 	HPDF_Stream font_data;
@@ -1487,7 +1487,7 @@ HPDF_GetTTFontDefFromFile (HPDF_Doc      pdf,
 
 HPDF_EXPORT(const char*)
 HPDF_LoadTTFontFromFile (HPDF_Doc         pdf,
-                         const char      *file_name,
+                         HPDF_FILEPATH    file_name,
                          HPDF_BOOL        embedding)
 {
     HPDF_Stream font_data;
@@ -1517,7 +1517,7 @@ static const char*
 LoadTTFontFromStream (HPDF_Doc         pdf,
                       HPDF_Stream      font_data,
                       HPDF_BOOL        embedding,
-                      const char      *file_name)
+                      HPDF_FILEPATH      file_name)
 {
     HPDF_FontDef def;
 
@@ -1563,7 +1563,7 @@ LoadTTFontFromStream (HPDF_Doc         pdf,
 
 HPDF_EXPORT(const char*)
 HPDF_LoadTTFontFromFile2 (HPDF_Doc         pdf,
-                          const char      *file_name,
+                          HPDF_FILEPATH    file_name,
                           HPDF_UINT        index,
                           HPDF_BOOL        embedding)
 {
@@ -1595,7 +1595,7 @@ LoadTTFontFromStream2 (HPDF_Doc         pdf,
                        HPDF_Stream      font_data,
                        HPDF_UINT        index,
                        HPDF_BOOL        embedding,
-                       FILEPATH_PARAMETER   file_name)
+                       HPDF_FILEPATH   file_name)
 {
     HPDF_FontDef def;
 
@@ -1641,7 +1641,7 @@ LoadTTFontFromStream2 (HPDF_Doc         pdf,
 
 HPDF_EXPORT(HPDF_Image)
 HPDF_LoadRawImageFromFile  (HPDF_Doc          pdf,
-                            const char       *filename,
+                            HPDF_FILEPATH     filename,
                             HPDF_UINT         width,
                             HPDF_UINT         height,
                             HPDF_ColorSpace   color_space)
@@ -1710,8 +1710,8 @@ HPDF_LoadRawImageFromMem  (HPDF_Doc           pdf,
 
 
 HPDF_EXPORT(HPDF_Image)
-HPDF_LoadJpegImageFromFile  (HPDF_Doc     pdf,
-                             const char  *filename)
+HPDF_LoadJpegImageFromFile  (HPDF_Doc      pdf,
+                             HPDF_FILEPATH filename)
 {
     HPDF_Stream imagedata;
     HPDF_Image image;
@@ -1923,7 +1923,7 @@ HPDF_AddPageLabel  (HPDF_Doc             pdf,
 
 HPDF_EXPORT(HPDF_EmbeddedFile)
 HPDF_AttachFile  (HPDF_Doc    pdf,
-                  const char *file)
+                  HPDF_FILEPATH file)
 {
     HPDF_NameDict names;
     HPDF_NameTree ntree;
@@ -2338,7 +2338,7 @@ HPDF_AddColorspaceFromProfile  (HPDF_Doc pdf,
 
 HPDF_EXPORT(HPDF_OutputIntent)
 HPDF_LoadIccProfileFromFile  (HPDF_Doc pdf,
-                           FILEPATH_PARAMETER icc_file_name,
+                           HPDF_FILEPATH icc_file_name,
 						           int numcomponent)
 {
     HPDF_Stream iccdata;
