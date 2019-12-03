@@ -21,6 +21,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #if defined(_MSC_VER)
+
+#ifndef _USE_UNICODE_FILEPATHS
+    #define _USE_UNICODE_FILEPATHS  // Window's uses _wfopen
+#endif
+
 #ifndef _USE_MATH_DEFINES
 #define _USE_MATH_DEFINES 1
 #endif /* _USE_MATH_DEFINES */
@@ -32,8 +37,15 @@
 
 /*----------------------------------------------------------------------------*/
 /*----- standard C library functions -----------------------------------------*/
-
-#define HPDF_FOPEN                  fopen
+#ifdef _USE_UNICODE_FILEPATHS
+    #define FILEPATH_PARAMETER      const wchar_t *
+    #define FILEMODE_TEXT(m)        L ## m
+    #define HPDF_FOPEN              _wfopen
+#else
+    #define FILEPATH_PARAMETER      const char *
+    #define FILEMODE_TEXT(m)        m
+    #define HPDF_FOPEN              fopen
+#endif
 #define HPDF_FCLOSE                 fclose
 #define HPDF_FREAD                  fread
 #define HPDF_FWRITE                 fwrite

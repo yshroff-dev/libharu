@@ -755,10 +755,10 @@ HPDF_Stream_WriteToStream  (HPDF_Stream  src,
 
 HPDF_Stream
 HPDF_FileReader_New  (HPDF_MMgr   mmgr,
-                      const char  *fname)
+                      FILEPATH_PARAMETER fname)
 {
     HPDF_Stream stream;
-    HPDF_FILEP fp = HPDF_FOPEN (fname, "rb");
+    HPDF_FILEP fp = HPDF_FOPEN (fname, FILEMODE_TEXT("rb"));
 
     HPDF_PTRACE((" HPDF_FileReader_New\n"));
 
@@ -931,10 +931,10 @@ HPDF_FileStream_SizeFunc  (HPDF_Stream   stream)
 
 HPDF_Stream
 HPDF_FileWriter_New  (HPDF_MMgr        mmgr,
-                      const char  *fname)
+                      FILEPATH_PARAMETER fname)
 {
     HPDF_Stream stream;
-    HPDF_FILEP fp = HPDF_FOPEN (fname, "wb");
+    HPDF_FILEP fp = HPDF_FOPEN (fname, FILEMODE_TEXT("wb"));
 
     HPDF_PTRACE((" HPDF_FileWriter_New\n"));
 

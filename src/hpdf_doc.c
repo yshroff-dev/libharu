@@ -74,7 +74,7 @@ static const char*
 LoadTTFontFromStream (HPDF_Doc         pdf,
                       HPDF_Stream      font_data,
                       HPDF_BOOL        embedding,
-                       const char      *file_name);
+                      FILEPATH_PARAMETER file_name);
 
 
 static const char*
@@ -82,7 +82,7 @@ LoadTTFontFromStream2 (HPDF_Doc         pdf,
                        HPDF_Stream      font_data,
                        HPDF_UINT        index,
                        HPDF_BOOL        embedding,
-                       const char      *file_name);
+                       FILEPATH_PARAMETER file_name);
 
 
 /*---------------------------------------------------------------------------*/
@@ -745,7 +745,7 @@ HPDF_ResetStream  (HPDF_Doc     pdf)
 
 HPDF_EXPORT(HPDF_STATUS)
 HPDF_SaveToFile  (HPDF_Doc     pdf,
-                  const char  *file_name)
+                  FILEPATH_PARAMETER file_name)
 {
     HPDF_Stream stream;
 
@@ -1393,8 +1393,8 @@ HPDF_GetFont  (HPDF_Doc          pdf,
 
 HPDF_EXPORT(const char*)
 HPDF_LoadType1FontFromFile  (HPDF_Doc     pdf,
-                             const char  *afm_file_name,
-                             const char  *data_file_name)
+                             FILEPATH_PARAMETER afm_file_name,
+                             FILEPATH_PARAMETER data_file_name)
 {
     HPDF_Stream afm;
     HPDF_Stream pfm = NULL;
@@ -1595,7 +1595,7 @@ LoadTTFontFromStream2 (HPDF_Doc         pdf,
                        HPDF_Stream      font_data,
                        HPDF_UINT        index,
                        HPDF_BOOL        embedding,
-                       const char      *file_name)
+                       FILEPATH_PARAMETER   file_name)
 {
     HPDF_FontDef def;
 
@@ -2338,7 +2338,7 @@ HPDF_AddColorspaceFromProfile  (HPDF_Doc pdf,
 
 HPDF_EXPORT(HPDF_OutputIntent)
 HPDF_LoadIccProfileFromFile  (HPDF_Doc pdf,
-                           const char* icc_file_name,
+                           FILEPATH_PARAMETER icc_file_name,
 						           int numcomponent)
 {
     HPDF_Stream iccdata;
