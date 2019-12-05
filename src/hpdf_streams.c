@@ -758,7 +758,7 @@ HPDF_FileReader_New  (HPDF_MMgr   mmgr,
                       const char  *fname)
 {
     HPDF_Stream stream;
-    HPDF_FILEP fp = HPDF_FOPEN (fname, "rb");
+    HPDF_FILEP fp = HPDF_FOPEN(fname, "rb");
 
     HPDF_PTRACE((" HPDF_FileReader_New\n"));
 

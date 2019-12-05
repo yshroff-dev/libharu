@@ -24,6 +24,8 @@
 #ifndef _USE_MATH_DEFINES
 #define _USE_MATH_DEFINES 1
 #endif /* _USE_MATH_DEFINES */
+
+#include "hpdf_win32.h"
 #endif
 #ifndef __USE_XOPEN
 #define __USE_XOPEN /* for M_PI */
@@ -32,8 +34,11 @@
 
 /*----------------------------------------------------------------------------*/
 /*----- standard C library functions -----------------------------------------*/
-
+#if defined(_MSC_VER)
+#define HPDF_FOPEN	win32_fopen
+#else
 #define HPDF_FOPEN                  fopen
+#endif
 #define HPDF_FCLOSE                 fclose
 #define HPDF_FREAD                  fread
 #define HPDF_FWRITE                 fwrite
